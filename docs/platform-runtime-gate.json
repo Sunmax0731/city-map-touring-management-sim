@@ -1,0 +1,13 @@
+{
+  "product": "city-map-touring-management-sim",
+  "title": "街・地図・ツーリング経営シム",
+  "domain": "Game",
+  "ideaNo": 7,
+  "platformType": "browser-web",
+  "expectedPublicTarget": "GitHub Pages / BOOTH",
+  "browser": {
+    "evidence": "dist/web-smoke-result.json"
+  },
+  "android": null,
+  "evidence": "dist/platform-runtime-gate-result.json"
+}
