@@ -1,0 +1,87 @@
+{
+  "product": "city-map-touring-management-sim",
+  "rank": 68,
+  "scenarios": [
+    {
+      "id": "happy-path",
+      "type": "happy-path",
+      "title": "街区需要の通常処理",
+      "inputs": {
+        "routeId": "bay-loop",
+        "budget": 12000,
+        "bikeCondition": "good",
+        "districtDemand": "weekend-high"
+      },
+      "expected": {
+        "status": "pass",
+        "accepted": 1,
+        "warnings": 0
+      }
+    },
+    {
+      "id": "missing-required",
+      "type": "missing-required",
+      "title": "budget不足時の停止",
+      "inputs": {
+        "routeId": "bay-loop",
+        "budget": "",
+        "bikeCondition": "good",
+        "districtDemand": "weekend-high"
+      },
+      "expected": {
+        "status": "error",
+        "accepted": 0,
+        "warnings": 0
+      }
+    },
+    {
+      "id": "warning",
+      "type": "warning",
+      "title": "整備費の注意喚起",
+      "inputs": {
+        "routeId": "mountain-pass",
+        "budget": 800,
+        "bikeCondition": "worn",
+        "districtDemand": "rain-low"
+      },
+      "flags": [
+        "needsReview"
+      ],
+      "expected": {
+        "status": "warning",
+        "accepted": 1,
+        "warnings": 1
+      }
+    },
+    {
+      "id": "mixed-batch",
+      "type": "mixed-batch",
+      "title": "ツーリング収支を含む混在バッチ",
+      "items": [
+        {
+          "routeId": "bay-loop",
+          "budget": 12000,
+          "bikeCondition": "good",
+          "districtDemand": "weekend-high"
+        },
+        {
+          "routeId": "bay-loop",
+          "budget": "",
+          "bikeCondition": "good",
+          "districtDemand": "weekend-high"
+        },
+        {
+          "routeId": "mountain-pass",
+          "budget": 800,
+          "bikeCondition": "worn",
+          "districtDemand": "rain-low"
+        }
+      ],
+      "expected": {
+        "status": "warning",
+        "accepted": 2,
+        "warnings": 2
+      }
+    }
+  ]
+}
