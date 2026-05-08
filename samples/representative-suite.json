@@ -5,12 +5,12 @@
     {
       "id": "happy-path",
       "type": "happy-path",
-      "title": "街区需要の通常処理",
+      "title": "街・地図・ツーリング経営シムの通常フロー",
       "inputs": {
-        "routeId": "bay-loop",
-        "budget": 12000,
-        "bikeCondition": "good",
-        "districtDemand": "weekend-high"
+        "district": "harbor",
+        "routePlan": "coastal-loop",
+        "fleetState": "ready",
+        "budgetPolicy": "balanced"
       },
       "expected": {
         "status": "pass",
@@ -21,12 +21,12 @@
     {
       "id": "missing-required",
       "type": "missing-required",
-      "title": "budget不足時の停止",
+      "title": "district不足時の停止",
       "inputs": {
-        "routeId": "bay-loop",
-        "budget": "",
-        "bikeCondition": "good",
-        "districtDemand": "weekend-high"
+        "district": "harbor",
+        "routePlan": "",
+        "fleetState": "ready",
+        "budgetPolicy": "balanced"
       },
       "expected": {
         "status": "error",
@@ -37,12 +37,12 @@
     {
       "id": "warning",
       "type": "warning",
-      "title": "整備費の注意喚起",
+      "title": "悪天候ルートの経営警告",
       "inputs": {
-        "routeId": "mountain-pass",
-        "budget": 800,
-        "bikeCondition": "worn",
-        "districtDemand": "rain-low"
+        "district": "mountain",
+        "routePlan": "storm-pass",
+        "fleetState": "fatigue",
+        "budgetPolicy": "rush-low"
       },
       "flags": [
         "needsReview"
@@ -56,25 +56,25 @@
     {
       "id": "mixed-batch",
       "type": "mixed-batch",
-      "title": "ツーリング収支を含む混在バッチ",
+      "title": "正常・不足・警告を含む混在バッチ",
       "items": [
         {
-          "routeId": "bay-loop",
-          "budget": 12000,
-          "bikeCondition": "good",
-          "districtDemand": "weekend-high"
+          "district": "harbor",
+          "routePlan": "coastal-loop",
+          "fleetState": "ready",
+          "budgetPolicy": "balanced"
         },
         {
-          "routeId": "bay-loop",
-          "budget": "",
-          "bikeCondition": "good",
-          "districtDemand": "weekend-high"
+          "district": "harbor",
+          "routePlan": "",
+          "fleetState": "ready",
+          "budgetPolicy": "balanced"
         },
         {
-          "routeId": "mountain-pass",
-          "budget": 800,
-          "bikeCondition": "worn",
-          "districtDemand": "rain-low"
+          "district": "mountain",
+          "routePlan": "storm-pass",
+          "fleetState": "fatigue",
+          "budgetPolicy": "rush-low"
         }
       ],
       "expected": {

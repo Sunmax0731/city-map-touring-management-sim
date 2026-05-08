@@ -1,20 +1,16 @@
 # 要件定義
 
-対象: 街・地図・ツーリング経営シム (Rank 68, Game No.7)
+## 対象
+
+| 68 | P3 | 48 | Game | 7 | 街・地図・ツーリング経営シム | city-map-touring-management-sim | GitHub Pages / BOOTH | 地図、経営、バイク文脈を一度に作ると範囲が広く、短期公開では遊びの核がぼやける。 |
 
 ## 目的
 
-街の地図、ツーリング需要、バイク整備、収支を軽量な経営シムにする。
+街区、ルート、予算を選び、ツーリング拠点の収益と満足度を確認するブラウザ経営シム検証。
 
-## 課題
+## 必須要件
 
-地図、経営、バイク文脈の設計が広く、長期公開には整理が必要。
-
-## 要件
-
-- 必須入力 `routeId`、`budget`、`bikeCondition`、`districtDemand` を検証する。
-- happy-path / missing-required / warning / mixed-batch を代表シナリオとして保持する。
-- CLI、静的Web UI、自動テスト、docs ZIP、release evidence を同一repoで完結させる。
-- 正式docsはNON PICKUP行、ZIP metadata、ドメインdocsを根拠に正常な日本語で再構成する。
-
-静的Webまたはローカルサーバーで確認できる browser game として、非blank表示、主要要素、主要操作を検証します。
+- 代表シナリオ4種を自動検証する。
+- GitHub Pagesまたはローカルサーバーで起動できる静的Webゲームとして、非blank表示と主要操作を必須とする。
+- 文字化けを検出し、正式成果物へ残さない。
+- QCDSの10段階スケールを機械検証する。
